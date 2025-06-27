@@ -1,0 +1,87 @@
+{% extends "contenido/encabezado.html" %}
+{% load static %}
+
+{% block titulo %}Formulario{% endblock %}
+
+{% block imagen %}
+<img src="{% static 'contenido/images/registrar.png' %}" class="img-fluid mx-auto d-block" style="max-height: 120px;" alt="Formulario">
+{% endblock %}
+
+{% block titulo_principal %}
+Registrar <span>DSM</span>
+{% endblock %}
+
+{% block url %}
+<div class="breadcrumb-line">
+  <ul class="breadcrumb">
+    <a href="{% url 'Cursos' %}">
+      {% if request.path == '/' %}
+        Formulario
+      {% else %}
+        Formulario{{ request.path }}
+      {% endif %}
+    </a>
+  </ul>
+</div>
+{% endblock %}
+
+{% block contenido %}
+<div class="page-header">
+  <div class="page-title">
+    <h3>Registro</h3>
+    <small>Ingresa tu información</small>
+  </div>
+</div>
+
+<form class="form-horizontal" action="#" role="form">
+  <div class="panel panel-default">
+    <div class="panel-body">
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label text-right">Matrícula:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" placeholder="Ej: 12345678">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label text-right">Nombre:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" placeholder="Tu nombre completo">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label text-right">Carrera:</label>
+        <div class="col-sm-10">
+          <select class="form-select">
+            <option value="">Selecciona...</option>
+            <option value="TIC">TIC</option>
+            <option value="BIO">BIO</option>
+            <option value="MAI">MAI</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label text-right">Turno:</label>
+        <div class="col-sm-10">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="turno" id="matutino" value="Matutino" checked>
+            <label class="form-check-label" for="matutino">Matutino</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="turno" id="vespertino" value="Vespertino">
+            <label class="form-check-label" for="vespertino">Vespertino</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-actions text-end mt-4">
+        <input type="submit" value="Enviar" class="btn btn-primary">
+      </div>
+
+    </div>
+  </div>
+</form>
+{% endblock %}

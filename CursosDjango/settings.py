@@ -133,3 +133,15 @@ import os  # Asegúrate de tener esta importación arriba si usas os.path
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+CKEDITOR_CONFIGS = {
+    'default': { 'toolbar': 'Custom',
+                'toolbar_Custom': [
+                    ['Bold', 'Italic', 'Underline'],
+                    ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-',
+                     'Justifleft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+                    ['Link', 'Unlink'],
+                    ['RemoveFormat', 'Source'],
+                ]
+    }
+}

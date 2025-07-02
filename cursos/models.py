@@ -23,3 +23,17 @@ class Curso(models.Model):
         ordering = ['fecha_creacion']
         verbose_name = "Curso"
         verbose_name_plural = "Cursos"
+
+class Actividad(models.Model):
+    curso = models.ForeignKey("Curso", on_delete=models.CASCADE, verbose_name="Curso relacionado")
+    clave = models.CharField("Clave de la actividad", max_length=10)
+    descripcion = models.TextField("Descripción", help_text="Describe brevemente la actividad")
+    fecha_creacion = models.DateTimeField("Fecha de creación", auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Actividad"
+        verbose_name_plural = "Actividades"
+        ordering = ['fecha_creacion']
+
+    def __str__(self):
+        return f"{self.clave} - {self.curso.nombre}"

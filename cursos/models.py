@@ -36,4 +36,8 @@ class Actividad(models.Model):
         ordering = ['fecha_creacion']
 
     def __str__(self):
-        return f"{self.clave} - {self.curso.nombre}"
+        # Guardamos la clave y el nombre del curso
+        clave_actividad = self.clave
+        nombre_curso = self.curso.nombre
+
+        return clave_actividad + " - " + nombre_curso

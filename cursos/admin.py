@@ -1,9 +1,12 @@
-# cursos/admin.py
 from django.contrib import admin
 from .models import Curso, Actividad
 
 @admin.register(Curso)
 class CursoAdmin(admin.ModelAdmin):
+    class Media:
+        css = {
+            'all': ('admin/css/custom.css',)
+        }
     list_display = ('clave', 'nombre', 'nivel', 'categoria', 'publicado', 'fecha_creacion')
     list_filter = ('publicado', 'categoria', 'nivel')
     search_fields = ('nombre', 'descripcion', 'clave')
@@ -35,6 +38,3 @@ class ActividadAdmin(admin.ModelAdmin):
             "fields": ("fecha_creacion",)
         }),
     )
-
-
-    

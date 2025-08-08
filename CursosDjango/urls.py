@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls), # Acceso al panel de administración de Django
      path('', include('contenido.urls')),  # Enlaza la aplicación
      path('cursos/', include('cursos.urls')),
+     path('crud/', include('cursos.urls')),  # Enlaza la aplicación de CRUD
+
 
 ]
 
